@@ -2,6 +2,8 @@ package calculator;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.EmptyStackException;
+
 import org.junit.Test;
 public class RPNCalculatorTest {
 	@Test
@@ -15,5 +17,15 @@ public class RPNCalculatorTest {
 	public void testSingleValue() {
 		RPNCalculator rpnCalc = new RPNCalculator();
 		assertEquals("The should be 123",123,rpnCalc.calculate(new String[]{"123"}));
+	}
+	@Test(expected=EmptyStackException.class)
+	public void testOnlyOperation() {
+		RPNCalculator rpnCalc = new RPNCalculator();
+		assertEquals("The should be 0",0,rpnCalc.calculate(new String[]{"+"}));
+	}
+	@Test
+	public void testWithoutOperation() {
+		RPNCalculator rpnCalc = new RPNCalculator();
+		assertEquals("The should be 0",0,rpnCalc.calculate(new String[]{"1","2","3"}));
 	}
 }

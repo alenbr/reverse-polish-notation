@@ -10,7 +10,7 @@ public class RPNCalculator {
 	public int calculate(String[] tokens) {
 		Stack<Integer> operands = new Stack<>();
 		for (String value : tokens) {
-			if ("+-/*".contains(value))
+			if ("+-/*".contains(value)) 
 				operands.push( oper(value).apply(operands.pop(),operands.pop()));
 			else 
 				operands.push(Integer.parseInt(value));
