@@ -25,6 +25,4 @@ public class RPNCalculator {
 		ops.put("*", (v1,v2) -> v2 * v1);
 		return ops.get(op);
 	}
-
-	
 }
